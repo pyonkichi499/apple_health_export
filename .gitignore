@@ -1,0 +1,69 @@
+# ==============================================
+# iPhone ヘルスケアデータ分析プロジェクト
+# プライバシー保護のための .gitignore
+# ==============================================
+
+# 個人健康データ
+data/
+!data/.gitkeep
+
+# 分析結果・グラフ（個人情報を含む可能性）
+results/
+!results/.gitkeep
+
+# 一時ファイル・キャッシュ
+*.tmp
+*.cache
+.DS_Store
+*.log
+
+# Python関連
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE・エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 個人設定ファイル
+config.local.*
+.env.local
+
+# 大容量ファイル
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.csv
+*.xml
+*.xlsx
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# サムネイルファイル
+._*
+
+# 実行時生成ファイル
+*.pid
+*.seed
+*.log
+logs/

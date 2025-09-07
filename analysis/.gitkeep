@@ -1,0 +1,11 @@
+# このファイルは analysis/ フォルダを Git リポジトリに保持するためのものです
+#
+# analysis/ フォルダには汎用ヘルスデータ分析システムが配置されます：
+#
+# analysis/
+# ├── generic_health_analyzer.py    # 汎用分析エンジン
+# ├── health_data_configs.py       # データタイプ別設定
+# ├── analyze_health_data.py       # 実行スクリプト
+# └── utils.py                     # 共通ユーティリティ
+#
+# これらのファイルはコードなので Git 管理対象です
