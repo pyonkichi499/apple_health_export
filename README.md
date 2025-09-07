@@ -63,35 +63,37 @@ apple_health_export/
 #### 基本的な使い方
 ```bash
 # 環境設定（初回のみ）
-pip3 install matplotlib
+pip install matplotlib
 
 # 利用可能なデータタイプ確認
-python3 analysis/analyze_health_data.py --show-categories
+python analysis/analyze_health_data.py --show-categories
 
 # 体重分析（2023年以降）
-python3 analysis/analyze_health_data.py --data-type body_weight --start-date 2023-01-01
+python analysis/analyze_health_data.py --data-type body_weight --start-date 2023-01-01
 
 # 摂取カロリー分析（過去30日間）
-python3 analysis/analyze_health_data.py --data-type calorie_intake --days 30
+python analysis/analyze_health_data.py --data-type calorie_intake --days 30
 
 # 歩数分析（14日移動平均）
-python3 analysis/analyze_health_data.py --data-type step_count --rolling-window 14
+python analysis/analyze_health_data.py --data-type step_count --rolling-window 14
 ```
 
 #### 高度な使い方
 ```bash
-# 複数指標同時分析
-python3 analysis/analyze_health_data.py --data-type body_weight,calorie_intake,step_count --start-date 2023-01-01
+# カロリー収支分析（摂取-基礎代謝-活動消費）
+python analysis/analyze_health_data.py --data-type calorie_balance --start-date 2025-01-01
+
+# 体重予測分析（実際 vs 理論体重）🎯 減量効果検証に最適
+python analysis/analyze_health_data.py --data-type weight_prediction --start-date 2025-01-01
+
+# 体重×カロリー収支 2軸グラフ
+python analysis/analyze_health_data.py --correlation weight-balance --start-date 2025-01-01
+
+# 複数指標の2軸グラフのみ（個別グラフなし）
+python analysis/analyze_health_data.py --data-type body_weight,calorie_intake --dual-axis-only --start-date 2025-01-01
 
 # 統計のみ（グラフなし）
-python3 analysis/analyze_health_data.py --data-type body_weight --no-graph
-
-# カスタム設定
-python3 analysis/analyze_health_data.py --data-type body_weight \
-    --start-date 2024-01-01 \
-    --rolling-window 14 \
-    --gap-threshold 45 \
-    --min-data-points 10
+python analysis/analyze_health_data.py --data-type body_weight --no-graph
 ```
 
 ### 📊 対応データタイプ
@@ -116,15 +118,19 @@ python3 analysis/analyze_health_data.py --data-type body_weight \
 - `sleep_analysis` - 睡眠時間（時間）
 - `heart_rate` - 心拍数（bpm）
 
+#### 合成指標（計算値）
+- `calorie_balance` - カロリー収支（摂取-基礎代謝-活動消費、kcal）
+- `weight_prediction` - 体重予測分析（実際体重 vs カロリー収支ベース理論体重、kg）
+
 ### 📜 既存ツールの使用（legacy/）
 
 ```bash
 # 体重グラフ分析（2023年以降、7日移動平均付き）
 cd legacy/
-python3 weight_graph_analysis.py
+python weight_graph_analysis.py
 
 # 簡易分析
-python3 simple_health_analysis.py
+python simple_health_analysis.py
 ```
 
 ## 🔧 環境設定
@@ -132,12 +138,12 @@ python3 simple_health_analysis.py
 ### 必要なライブラリ
 ```bash
 # 基本機能（必須）
-pip3 install matplotlib
+pip install matplotlib
 
 # 仮想環境を使用する場合（推奨）
-python3 -m venv .venv
+python -m venv .venv
 source .venv/bin/activate  # macOS/Linux
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 日本語フォント（自動設定）
@@ -170,7 +176,7 @@ pip3 install -r requirements.txt
 ### 1. 環境準備
 ```bash
 # 必要なライブラリをインストール
-pip3 install matplotlib
+pip install matplotlib
 
 # プロジェクトディレクトリに移動
 cd /path/to/apple_health_export
@@ -183,16 +189,16 @@ cd /path/to/apple_health_export
 ### 3. 分析実行
 ```bash
 # 利用可能なデータを確認
-python3 analysis/analyze_health_data.py --show-categories
+python analysis/analyze_health_data.py --show-categories
 
 # 体重分析（減量目標にお勧め）
-python3 analysis/analyze_health_data.py --data-type body_weight --start-date 2023-01-01
+python analysis/analyze_health_data.py --data-type body_weight --start-date 2023-01-01
 
 # 摂取カロリー分析
-python3 analysis/analyze_health_data.py --data-type calorie_intake --days 30
+python analysis/analyze_health_data.py --data-type calorie_intake --days 30
 
 # 複数指標の同時分析
-python3 analysis/analyze_health_data.py --data-type body_weight,calorie_intake,step_count --start-date 2024-01-01
+python analysis/analyze_health_data.py --data-type body_weight,calorie_intake,step_count --start-date 2024-01-01
 ```
 
 ### 4. 結果確認

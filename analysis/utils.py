@@ -191,14 +191,20 @@ def split_data_by_gaps(daily_data, gap_days=30):
 
     return segments
 
-def format_number(value, unit='', decimal_places=1):
+def format_number(value, unit='', decimal_places=1, show_sign=False):
     """数値を適切な形式でフォーマット"""
-    if unit in ['kg', '%']:
-        return f"{value:.{decimal_places}f} {unit}"
-    elif unit in ['kcal', '歩', 'count']:
-        return f"{value:.0f} {unit}"
+    # 符号の処理
+    if show_sign and value >= 0:
+        sign = '+'
     else:
-        return f"{value:.{decimal_places}f} {unit}"
+        sign = ''
+
+    if unit in ['kg', '%']:
+        return f"{sign}{value:.{decimal_places}f} {unit}"
+    elif unit in ['kcal', '歩', 'count']:
+        return f"{sign}{value:.0f} {unit}"
+    else:
+        return f"{sign}{value:.{decimal_places}f} {unit}"
 
 def ensure_data_directory():
     """データディレクトリが存在することを確認"""
