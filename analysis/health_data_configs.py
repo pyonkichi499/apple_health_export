@@ -193,6 +193,53 @@ HEALTH_DATA_CONFIGS = {
         "decimal_places": 0,
         "rolling_window": 7,
         "description": "安静時心拍数を追跡し、心血管健康を分析"
+    },
+
+    # 合成指標
+    "calorie_balance": {
+        "file": ["DietaryEnergyConsumed.csv", "BasalEnergyBurned.csv", "ActiveEnergyBurned.csv"],
+        "value_column": "calculated",
+        "unit": "kcal",
+        "japanese_name": "カロリー収支",
+        "title": "カロリー収支の推移（摂取 - 基礎代謝 - 活動消費）",
+        "aggregation": "calculated",
+        "chart_color": "#8B5CF6",
+        "rolling_color": "#7C3AED",
+        "y_label": "カロリー収支 (kcal)",
+        "decimal_places": 0,
+        "rolling_window": 7,
+        "description": "摂取カロリーから基礎代謝と活動カロリーを差し引いた収支を分析",
+        "special_processing": "calorie_balance",
+        "component_files": {
+            "intake": "DietaryEnergyConsumed.csv",
+            "basal": "BasalEnergyBurned.csv",
+            "active": "ActiveEnergyBurned.csv"
+        }
+    },
+
+    "weight_prediction": {
+        "file": ["BodyMass.csv", "DietaryEnergyConsumed.csv", "BasalEnergyBurned.csv", "ActiveEnergyBurned.csv"],
+        "value_column": "calculated",
+        "unit": "kg",
+        "japanese_name": "体重予測分析",
+        "title": "実際体重 vs 理論体重（カロリー収支ベース）",
+        "aggregation": "calculated",
+        "chart_color": "#059669",
+        "rolling_color": "#047857",
+        "y_label": "体重 (kg)",
+        "decimal_places": 1,
+        "rolling_window": 7,
+        "description": "カロリー収支から理論的体重変化を予測し、実際の体重変化と比較分析",
+        "special_processing": "weight_prediction",
+        "component_files": {
+            "weight": "BodyMass.csv",
+            "intake": "DietaryEnergyConsumed.csv",
+            "basal": "BasalEnergyBurned.csv",
+            "active": "ActiveEnergyBurned.csv"
+        },
+        "prediction_params": {
+            "kcal_per_kg": 7200  # 1kg = 7200kcal
+        }
     }
 }
 
@@ -201,7 +248,8 @@ DATA_CATEGORIES = {
     "体重・体組成": ["body_weight", "body_fat", "bmi"],
     "食事・栄養": ["calorie_intake", "protein", "carbohydrates"],
     "活動量": ["active_calories", "basal_calories", "step_count", "walking_distance"],
-    "睡眠・健康": ["sleep_analysis", "heart_rate"]
+    "睡眠・健康": ["sleep_analysis", "heart_rate"],
+    "合成指標": ["calorie_balance", "weight_prediction"]
 }
 
 # デフォルト分析設定
