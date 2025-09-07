@@ -1,0 +1,40 @@
+MIT License
+
+Copyright (c) 2024 Hiroshi Terauchi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 健康データに関する追加免責事項 / Health Data Disclaimer
+
+本ソフトウェアは個人の健康データ分析を目的として作成されていますが、
+以下の点にご注意ください：
+
+- 本ツールは医療機器ではなく、医学的アドバイスを提供するものではありません
+- 分析結果は参考情報であり、医療判断の代替となるものではありません
+- 健康に関する重要な決定は、必ず医療専門家にご相談ください
+- 個人データのプライバシー保護は利用者の責任で行ってください
+- 本ソフトウェアの使用による健康上の問題について、作者は一切の責任を負いません
+
+This software is designed for personal health data analysis, but please note:
+
+- This tool is not a medical device and does not provide medical advice
+- Analysis results are for reference only and should not replace medical judgment
+- Always consult healthcare professionals for important health decisions
+- Users are responsible for protecting their personal data privacy
+- The author assumes no responsibility for health issues arising from use of this software
