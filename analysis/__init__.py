@@ -28,6 +28,7 @@ __author__ = 'pyonkichi499'
 
 # 主要クラス・関数のインポート
 from .generic_health_analyzer import GenericHealthAnalyzer, analyze_health_data
+from .multi_data_analyzer import MultiDataAnalyzer, analyze_weight_calorie_correlation
 from .health_data_configs import (
     get_available_data_types,
     get_data_config,
@@ -47,6 +48,8 @@ from .utils import (
 __all__ = [
     'GenericHealthAnalyzer',
     'analyze_health_data',
+    'MultiDataAnalyzer',
+    'analyze_weight_calorie_correlation',
     'get_available_data_types',
     'get_data_config',
     'list_data_types_by_category',
